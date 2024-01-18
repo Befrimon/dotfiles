@@ -1,0 +1,146 @@
+* {
+    font-family: FontAwesome, JetBrainsMono;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: rgba(43, 48, 59, 0.5);
+    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#workspaces button {
+    padding: 0 6px;
+	margin: 0 4px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+	border-radius: 5px;
+    box-shadow: inset 0 -3px #d17b26;
+	padding: 0 5px;
+	margin-left: 15px;
+}
+
+
+#wireplumber
+#network
+#cpu
+#backlight
+#language
+#keyboard-state
+#battery
+#clock
+
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+#wireplumber, #network, #cpu, #temperature, #memory, #backlight, #language, #battery, #clock, #keyboard-state {
+	border-radius: 5px;
+	padding: 0 15px;
+	margin: 0 4px;
+
+	background-color: rgba(144, 177, 177, .3);
+	color: #ffffff;
+}
+
+#clock {
+    box-shadow: inset 0 -3px #64727d;
+}
+
+@keyframes blink {
+	to {
+		background-color: rgba(255, 255, 255, .3);
+		color: #000000;
+	}
+}
+
+#battery {
+    box-shadow: inset 0 -3px #ffffff;
+}
+#battery.charging, #battery.plugged {
+    background-color: rgba(38, 166, 91, .3);
+}
+#battery.warning:not(.charging) {
+	background-color: rgba(179, 100, 11, .3);
+}
+#battery.critical:not(.charging) {
+    background-color: rgba(245, 60, 60, .3);
+
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#language {
+	box-shadow: inset 0 -3px #00b093;
+}
+
+#keyboard-state {
+	box-shadow: inset 0 -3px #97e1ad;
+	min-width: 16px;
+	padding: 0 9px;
+}
+#keyboard-state label {
+	padding: 0 6px;
+}
+
+#backlight {
+	box-shadow: inset 0 -3px #90b1b1;
+}
+
+#memory {
+	box-shadow: inset 0 -3px #9b59b6;
+}
+
+#temperature {
+	box-shadow: inset 0 -3px #f0932b;
+}
+#temperature.critical {
+	background-color: rgba(245, 60, 60, .3);
+}
+
+#cpu {
+    box-shadow: inset 0 -3px #2ecc71;
+}
+
+#network {
+    box-shadow: inset 0 -3px #2980b9;
+}
+#network.disconnected {
+    background-color: rgba(245, 60, 60, .3);
+}
+
+#wireplumber {
+    box-shadow: inset 0 -3px #f1c40f;
+}
+#wireplumber.muted {
+    background-color: rgba(177, 144, 144, .3);
+}
+

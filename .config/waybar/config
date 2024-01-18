@@ -1,0 +1,90 @@
+{
+    "layer": "top", 
+    "position": "top",
+    "height": 30,
+    "spacing": 5,
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": [],
+    "modules-right": [
+		"network", "cpu", "temperature",
+		"memory", "backlight", "wireplumber", "sway/language", 
+		"keyboard-state", "battery", "clock"
+	],
+
+    "sway/workspaces": {
+		"disable-scroll": true,
+    	"all-outputs": true,
+    	"format": "{name}: {icon}",
+    	"format-icons": {
+    		"1": "",
+    		"2": "",
+			"3": "",
+    		"urgent": "",
+    		"focused": "",
+    		"default": ""
+		}
+    },
+
+	"sway/mode": {
+		"format": "<span style='normal'>{}</span>"
+	},
+
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+    		"format-icons": {
+		"mute": "",
+			"default": ["", "", "", ""],
+    	}
+	},
+	"network": {
+		"format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"cpu": {
+		"format": "{usage}% ",
+        "tooltip": false
+	},
+	"temperature": {
+		"critical-threshold": 80,
+		"format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+	},
+	"memory": {
+		"format": "{used}G ({}%) "
+	},
+	"backlight": {
+		"format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"battery": {
+		"states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+	},
+	"clock": {
+		"timezone": "Europe/Moscow",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+	}
+}
+
