@@ -34,14 +34,14 @@
 		"format": "{volume}% {icon}",
     		"format-icons": {
 		"mute": "",
-			"default": ["", "", "", ""],
+			"default": ["", "", "", ""]
     	}
 	},
 	"network": {
 		"format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
@@ -52,7 +52,7 @@
 	"temperature": {
 		"critical-threshold": 80,
 		"format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
 	},
 	"memory": {
 		"format": "{used}G ({}%) "
@@ -60,6 +60,9 @@
 	"backlight": {
 		"format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"sway/language": {
+		"format": "{short}"
 	},
 	"keyboard-state": {
 		"numlock": true,
