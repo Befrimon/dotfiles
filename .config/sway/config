@@ -25,21 +25,23 @@ input * {
 
 ### Idle configuration
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+		timeout 600 'swaylock-fancy' \
+        timeout 900 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+		after-resume 'swaymsg "output * enable"' \
+		before-sleep 'swaylock-fancy'
 
 ### Key bindings
 ## Basics:
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+q kill
     bindsym $mod+q exec $menu --show run
-    bindsym $mod+Shift+c reload
+    bindsym $mod+l exec swaylock-fancy
+	bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'CABOOM???' -B 'Yes, Rico, CABOOM!' 'swaymsg exit'
 
 	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 	bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-
 	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
