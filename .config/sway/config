@@ -39,6 +39,7 @@ exec swayidle -w \
     bindsym $mod+l exec swaylock-fancy
 	bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'CABOOM???' -B 'Yes, Rico, CABOOM!' 'swaymsg exit'
+	bindsym $mod+n exec swaync-client -t
 
 	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 	bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -122,7 +123,6 @@ workspace 2 gaps inner 1
 
 ### Startup apps
 exec /home/gdev/.config/sway/startup.sh
-exec waybar
 
 workspace 2
 exec firefox-esr
