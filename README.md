@@ -5,7 +5,7 @@ Configs that I use on my device
 
 ## My system
 - **Distro:** [Devuan Linux](https://www.devuan.org/) (daedalus)
-- **Display Server:** [Wayland](https://wayland.freedesktop.org/)
+- I hate X11 and use [Wayland](https://wayland.freedesktop.org/)
 - **Multimedia Server:** [PipeWire](https://github.com/PipeWire/pipewire)
 
 ## Utilities
