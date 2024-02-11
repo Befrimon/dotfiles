@@ -1,22 +1,12 @@
 from os import system, walk
 
-copy_files = [".zshrc"]
-copy_dirs = [".config"]
-ignore = ["btop", "dconf", "neofetch", "pulse"]
+DOTFILES = ["./.zshrc", "./.p10k.zsh", ".config/alacritty", ".config/nvim", ".config/sway", ".config/swaync", ".config/waybar", ".config/wofi"]
 HOME = "/home/gdev"
 GIT = "/home/gdev/Projects/dotfiles"
 
-for file in copy_files:
-    system(f"yes | cp -rfi {HOME}/{file} {GIT}/")
 
-conf_dir = []
-for dir in copy_dirs:
-    for _, dirnames, _ in walk(f"{HOME}/{dir}"):
-        conf_dir.extend(dirnames)
-        break
-
-for dir in conf_dir:
-    if dir in ignore:
-        continue
-    system(f"yes | cp -rfi {HOME}/.config/{dir} {GIT}/.config/")
+if __name__ == "__main__":
+    for file in DOTFILES:
+        directory, filename = file.split('/')
+        system(f"yes | cp -rfi {HOME}/{directory}/{filename} {GIT}/{directory}")
 

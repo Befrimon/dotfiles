@@ -18,6 +18,8 @@ alias wlist="nmcli device wifi list"
 alias wlcon="nmcli device wifi connect"
 alias wldis="nmcli connection down id"
 
+#alias eww="/home/gdev/.sources/eww/target/release/eww"
+
 ## Execute sway wm on tty1
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec dbus-launch --exit-with-session sway --unsupported-gpu

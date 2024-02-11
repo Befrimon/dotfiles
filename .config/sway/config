@@ -3,6 +3,7 @@ include /etc/sway/config-vars.d
 ### Variables
 set $mod Mod4
 set $term alacritty
+set $file-manager 'alacritty -e mc'
 set $menu wofi 
 
 ### Output configuration
@@ -13,7 +14,7 @@ input type:touchpad {
     dwt disabled
 	  tap enabled
 	  scroll_factor .9
-	  pointer_accel .2
+	  pointer_accel .15
 	  middle_emulation enabled
     natural_scroll enabled
 }
@@ -36,7 +37,8 @@ exec swayidle -w \
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+q kill
     bindsym $mod+q exec $menu --show run
-    bindsym $mod+l exec swaylock-fancy
+    bindsym $mod+e exec $term -e mc
+	bindsym $mod+l exec swaylock-fancy
 	bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'CABOOM???' -B 'Yes, Rico, CABOOM!' 'swaymsg exit'
 	bindsym $mod+n exec swaync-client -t
@@ -84,6 +86,7 @@ exec swayidle -w \
 ## Scratchpad
     bindsym $mod+Shift+minus move scratchpad
     bindsym $mod+minus scratchpad show
+	bindsym $mod+equal floating toggle
 
 ## Layout stuff:
     bindsym $mod+h splith
@@ -111,26 +114,47 @@ mode "resize" {
 ## Screenshot
     bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
+### Status bar
+bar {
+	swaybar_command waybar
+}
+
 ### Window style
 gaps inner 6
 gaps outer 0
 
+for_window [class="jetbrains-toolbox"] floating enable
+for_window [class="jetbrains-toolbox"] border pixel 0
 for_window [class="waybar"] gaps outer current set 5
+for_window [class="krita"] border pixel 0
 default_border pixel 0
 
-## Just for browser
+for_window [workspace="2"] layout tabbed
+
+floating_modifier $mod normal
+
+## Just for unity and browser
 workspace 2 gaps inner 1
+workspace 3 gaps inner 1
 
 ### Startup apps
 exec /home/gdev/.config/sway/startup.sh
 
-workspace 2
-exec firefox-esr
+set $slp .5s
 
-workspace 3
-exec telegram-desktop
+#workspace 3
+#exec firefox-esr && sleep $slp
 
-workspace 1
-exec $term
+#workspace 4
+#exec telegram-desktop && sleep $slp
+
+#workspace 10
+#exec $term -e mc && sleep $slp
+
+#workspace 1
+#exec $term
+
+#workspace 2
+#exec subl && unityhub && sleep $slp
 
 include /etc/sway/config.d/*

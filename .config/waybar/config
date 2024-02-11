@@ -7,7 +7,7 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
     "modules-right": [
-		"network", "cpu", "temperature",
+		"network", //"cpu", "temperature",
 		"memory", "backlight", "wireplumber", "sway/language", 
 		"keyboard-state", "battery", "clock"
 	],
@@ -18,8 +18,10 @@
     	"format": "{name}: {icon}",
     	"format-icons": {
     		"1": "",
-    		"2": "",
-			"3": "",
+    		"2": "",
+			"3": "",
+			"4": "",
+			"10": "",
     		"urgent": "",
     		"focused": "",
     		"default": ""
@@ -85,7 +87,7 @@
         "format-icons": ["", "", "", "", ""]
 	},
 	"clock": {
-		"timezone": "Europe/Moscow",
+		"timezone": "UTC",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
 	}
